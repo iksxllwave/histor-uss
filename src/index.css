@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #e2e8f0;
+    background-color: #0c1012;
+    background-image: 
+      radial-gradient(circle at 50% 0%, rgba(30, 41, 59, 0.45) 0%, rgba(12, 16, 18, 0.98) 75%),
+      repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 1px, transparent 1px, transparent 4px);
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+  }
+
+  p {
+    line-height: 1.7;
+  }
+}
+
+.font-heading {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.02em;
+}
+
+.font-serif-text {
+  font-family: 'Lora', Georgia, serif;
+}
+
+.font-mono-code {
+  font-family: 'Space Mono', monospace;
+}
+
+/* Tactical WW1 Steel & Trench Cards */
+.archive-card {
+  background-color: #151d20;
+  border: 1px solid #28373d;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  color: #e2e8f0;
+}
+
+.archive-card:hover {
+  border-color: #3b4f57;
+}
+
+.archive-card-subtle {
+  background-color: #101618;
+  border: 1px solid #212c30;
+  border-radius: 0.75rem;
+  color: #cbd5e1;
+}
+
+.archive-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  background-color: #1e292d;
+  color: #7dd3fc;
+  border: 1px solid #33444a;
+}
+
+.archive-stamp {
+  border: 2px dashed #475569;
+  padding: 0.25rem 0.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+  display: inline-block;
+  color: #94a3b8;
+}
+
+/* Trench tactical scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0c1012;
+}
+::-webkit-scrollbar-thumb {
+  background: #253338;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #384b53;
+}
+
+/* Helper to hide scrollbar on horizontal tabs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
