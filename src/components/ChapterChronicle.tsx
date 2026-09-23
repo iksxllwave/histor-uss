@@ -11,6 +11,24 @@ export const ChapterChronicle: React.FC = () => {
   const [filter, setFilter] = useState<'all' | 'ukraine' | 'key-battles'>('all');
   const [selectedEventIndex, setSelectedEventIndex] = useState<number>(0);
 
+  const handleFilterChange = (newFilter: 'all' | 'ukraine' | 'key-battles') => {
+    sound.playClick();
+    setFilter(newFilter);
+    const newFiltered = TIMELINE_EVENTS.filter((ev) => {
+      if (newFilter === 'ukraine') {
+        return ev.ukraineFact || ev.region.includes('Україн') || ev.region.includes('Карпат');
+      }
+      if (newFilter === 'key-battles') {
+        return ev.tag.includes('фронт') || ev.tag.includes('прорив') || ev.tag.includes('пекло');
+      }
+      return true;
+    });
+    if (newFiltered.length > 0) {
+      const firstIdx = TIMELINE_EVENTS.findIndex((e) => e.title === newFiltered[0].title);
+      setSelectedEventIndex(firstIdx >= 0 ? firstIdx : 0);
+    }
+  };
+
   const filteredEvents = TIMELINE_EVENTS.filter((ev) => {
     if (filter === 'ukraine') {
       return ev.ukraineFact || ev.region.includes('Україн') || ev.region.includes('Карпат');
@@ -147,10 +165,7 @@ export const ChapterChronicle: React.FC = () => {
             <div className="flex items-center gap-1.5 bg-[#121a1d] p-1.5 rounded-xl border border-[#233137]">
               <button
                 id="filter-chronicle-all"
-                onClick={() => {
-                  sound.playClick();
-                  setFilter('all');
-                }}
+                onClick={() => handleFilterChange('all')}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
                   filter === 'all'
                     ? 'bg-amber-500 text-slate-950 font-bold shadow-xs'
@@ -161,10 +176,7 @@ export const ChapterChronicle: React.FC = () => {
               </button>
               <button
                 id="filter-chronicle-ukraine"
-                onClick={() => {
-                  sound.playClick();
-                  setFilter('ukraine');
-                }}
+                onClick={() => handleFilterChange('ukraine')}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
                   filter === 'ukraine'
                     ? 'bg-amber-500 text-slate-950 font-bold shadow-xs'
@@ -175,10 +187,7 @@ export const ChapterChronicle: React.FC = () => {
               </button>
               <button
                 id="filter-chronicle-battles"
-                onClick={() => {
-                  sound.playClick();
-                  setFilter('key-battles');
-                }}
+                onClick={() => handleFilterChange('key-battles')}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
                   filter === 'key-battles'
                     ? 'bg-amber-500 text-slate-950 font-bold shadow-xs'
