@@ -139,8 +139,8 @@ export default function App() {
             }}
             className="px-4 py-2 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/40 text-amber-300 text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all"
           >
-            <Mic className="w-4 h-4 text-amber-400" />
-            <span>Шпаргалка доповідача до цього розділу</span>
+            <BookOpen className="w-4 h-4 text-amber-400" />
+            <span>Шпаргалка та контекст розділу (Клавіша 'M')</span>
           </button>
 
           <button
@@ -187,10 +187,10 @@ export default function App() {
             <span>•</span>
             <button
               onClick={() => setIsSpeakerNotesOpen(true)}
-              className="text-amber-400 hover:underline flex items-center gap-1"
+              className="text-amber-400 hover:underline flex items-center gap-1 font-medium"
             >
-              <Mic className="w-3 h-3" />
-              <span>Шпаргалка для розповіді</span>
+              <BookOpen className="w-3.5 h-3.5" />
+              <span>Шпаргалка та контекст</span>
             </button>
           </div>
         </div>

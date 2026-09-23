@@ -103,7 +103,7 @@ export interface CavalryFact {
   description: string;
   statistic: string;
   statLabel: string;
-  role: 'Кавалерійська атака' | 'Артилерійська тяга' | 'Санітарний транспорт' | 'Зв\'язок та маскоти';
+  role: 'Кавалерійська атака' | 'Артилерійська тяга' | 'Санітарний транспорт' | 'Зв\'язок та маскоти' | 'Санітарна служба' | 'Захист від гризунів' | 'Польовий зв\'язок';
   impact: string;
   imageUrl?: string;
   imageCaption?: string;

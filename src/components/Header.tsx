@@ -2,7 +2,7 @@ import React from 'react';
 import { ChapterId } from '../types';
 import { CHAPTERS } from '../data/ww1Data';
 import { sound } from '../utils/audio';
-import { Volume2, VolumeX, Presentation, LayoutGrid, ChevronLeft, ChevronRight, Mic, User, GraduationCap } from 'lucide-react';
+import { Volume2, VolumeX, Presentation, LayoutGrid, ChevronLeft, ChevronRight, Mic, User, GraduationCap, BookOpen } from 'lucide-react';
 
 interface HeaderProps {
   currentChapter: ChapterId;
@@ -66,7 +66,7 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Action Controls */}
         <div className="flex items-center gap-2">
-          {/* Speaker Cheat Sheet Notes Button */}
+          {/* Speaker Cheat Sheet Notes & Context Button */}
           {onOpenSpeakerNotes && (
             <button
               id="header-speaker-notes-btn"
@@ -74,11 +74,11 @@ export const Header: React.FC<HeaderProps> = ({
                 sound.playClick();
                 onOpenSpeakerNotes();
               }}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs sm:text-sm font-bold transition-all shadow-md"
-              title="Відкрити шпаргалку для усного виступу"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs sm:text-sm font-bold transition-all shadow-md group"
+              title="Відкрити шпаргалку доповідача, контекст тем та фото-довідник (Клавіша 'M')"
             >
-              <Mic className="w-4 h-4 text-slate-950 animate-pulse" />
-              <span className="hidden sm:inline">Шпаргалка для розповіді</span>
+              <BookOpen className="w-4 h-4 text-slate-950 group-hover:scale-110 transition-transform" />
+              <span className="hidden sm:inline">Шпаргалка та контекст</span>
               <span className="sm:hidden">Шпаргалка</span>
             </button>
           )}

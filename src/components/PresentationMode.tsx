@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ChapterId } from '../types';
 import { CHAPTERS } from '../data/ww1Data';
 import { sound } from '../utils/audio';
-import { ChevronLeft, ChevronRight, X, Mic, User, GraduationCap } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, Mic, User, GraduationCap, BookOpen } from 'lucide-react';
 import { SpeakerNotesModal } from './SpeakerNotesModal';
 
 interface PresentationModeProps {
@@ -76,18 +76,18 @@ export const PresentationMode: React.FC<PresentationModeProps> = ({
         </div>
 
         <div className="flex items-center gap-2">
-          {/* Quick Speaker Notes Button */}
+          {/* Quick Speaker Notes & Context Button */}
           <button
             id="pres-speaker-notes-btn"
             onClick={() => {
               sound.playClick();
               setIsSpeakerNotesOpen(true);
             }}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs sm:text-sm font-bold transition-colors shadow-sm"
-            title="Відкрити шпаргалку для усного розказу (Гаряча клавіша: N або M)"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs sm:text-sm font-bold transition-all shadow-sm group"
+            title="Відкрити шпаргалку доповідача, контекст та фото-каталог (Клавіша 'M' або 'N')"
           >
-            <Mic className="w-4 h-4 text-slate-950 animate-pulse" />
-            <span className="hidden sm:inline">Шпаргалка для розповіді</span>
+            <BookOpen className="w-4 h-4 text-slate-950 group-hover:scale-110 transition-transform" />
+            <span className="hidden sm:inline">Шпаргалка та контекст</span>
             <span className="sm:hidden">Шпаргалка</span>
           </button>
 
